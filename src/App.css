@@ -4,11 +4,18 @@
 
 body {
   text-align: center;
-  background-image: url('https://www.pixel-creation.com/wp-content/uploads/star-wars-wallpapers-1920x1080-wallpaper-cave-12-800x800.jpg');
-  background-repeat: no-repeat;
+  margin-top: 20%;
+  background:  url('https://www.pixel-creation.com/wp-content/uploads/star-wars-wallpapers-1920x1080-wallpaper-cave-12-800x800.jpg') no-repeat center center fixed; 
+  -webkit-background-size: cover;
+  -moz-background-size: cover;
+  -o-background-size: cover;
   background-size: cover;
   color: rgb(255, 255, 47);
   font-size: 20px;
+}
+
+ul, li {
+  list-style: none;
 }
 
 a {
@@ -17,15 +24,40 @@ a {
 }
 
 .search-form {
-  margin-left: 23%;
-  margin-right: 20%;
+  margin-left: 10%;
+  margin-right: 10%;
   margin-bottom: 5%;
   display: flex;
   justify-content: space-evenly;
   align-items: center;
 }
 
-#search-bar {
 
-  max-height: 20px;
+
+#search-bar {
+  font-size: 20px;
+  height: 30px;
+  margin-right: 10px;
+  border-radius: 10%;
+  color: red;
+  text-align: center;
+}
+
+button {
+  color: white;
+  font-size: 20px;
+  border-radius: 4px;
+  text-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background: rgb(97, 179, 255);
+}
+
+
+@media only screen  and (min-width: 768px) {
+  body {
+    margin-top: 10%;
+  }
+  .search-form {
+    margin-left: 20%;
+    margin-right: 20%;
+  }
 }

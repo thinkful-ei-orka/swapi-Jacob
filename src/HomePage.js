@@ -6,27 +6,31 @@ export default class HomePage extends React.Component {
     static contextType = FileContext;
 
     render() {
-        let peopleList = <div>Loading....</div>;
+        let peopleList = <li>Loading....</li>;
         if(this.context.people !== undefined) {
             peopleList = this.context.people.map(person => {
                 if(person.expanded === false) {
-                    return <div key={person.name}>{person.name}</div>
+                    return (
+                        <li key={person.name}>
+                            {person.name}
+                        </li>
+                    )
                 }
                 return (
-                    <div>
-                        <div>{person.name}</div>
-                        <div>{person.gender}</div>
-                        <div>{person.birth_year}</div>
-                    </div>
+                    <ul className="expanded-list-item">
+                        <li>{person.name}</li>
+                        <li>{person.gender}</li>
+                        <li>{person.birth_year}</li>
+                    </ul>
                 )
             })        
         }
         return(
             <>
                 <SearchBar />
-                <div className='person-list'>
+                <ul className='person-list'>
                     {peopleList}
-                </div>
+                </ul>
             </>
         )
     }
