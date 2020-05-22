@@ -7,12 +7,19 @@ export default class HomePage extends React.Component {
 
     render() {
         let peopleList = <div>Loading....</div>;
-        if(this.context.people.results !== undefined) {
-            peopleList = this.context.people.results.map(person => {
-                console.log(person)
-                return <div key={person.name}>{person.name}</div>
-            })
-            
+        if(this.context.people !== undefined) {
+            peopleList = this.context.people.map(person => {
+                if(person.expanded === false) {
+                    return <div key={person.name}>{person.name}</div>
+                }
+                return (
+                    <div>
+                        <div>{person.name}</div>
+                        <div>{person.gender}</div>
+                        <div>{person.birth_year}</div>
+                    </div>
+                )
+            })        
         }
         return(
             <>

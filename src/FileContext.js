@@ -1,5 +1,4 @@
 import React from 'react';
-import { Redirect } from 'react-router-dom';
 const FileContext = React.createContext();
 export default FileContext;
 
@@ -19,8 +18,12 @@ export class FileContextProvider extends React.Component {
             return res.json()
         })
         .then(people => {
+            let peopleList = people.results;
+            peopleList.forEach(person => {
+                Object.assign(person, {expanded: false})
+            })
             this.setState({
-                people: people
+                people: peopleList
             })
         })
         .catch(error => {return error.message})
@@ -36,7 +39,7 @@ export class FileContextProvider extends React.Component {
         })
         .then(result => {
             this.setState({
-                searchResults: result
+                searchResults: result.results
             })
         })
         .catch(error => {return error.message})
@@ -51,6 +54,7 @@ export class FileContextProvider extends React.Component {
             <FileContext.Provider value={{
                 people: this.state.people,
                 onSearchPerson: this.searchPerson,
+                searchResults: this.state.searchResults
 
 
             }}>

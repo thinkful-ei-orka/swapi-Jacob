@@ -16,7 +16,7 @@ export default class App extends React.Component {
         </header>
         <FileContextProvider>
           <Route path='/' exact component={HomePage} />
-          <Route path='/people/:personName' exact component={SearchResults} />
+          <Route path='/:personName' exact component={SearchResults} />
         </FileContextProvider>
       </>
     )
